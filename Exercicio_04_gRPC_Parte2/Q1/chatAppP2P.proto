@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+service ChatAppP2P {
+    rpc join(voidNoParam) returns (stream ChatMsg) {} 
+    rpc sendMsg (ChatMsg) returns (voidNoParam) {}    
+}
+
+message voidNoParam {}
+
+message ChatMsg {
+    string msg = 1;
+}
