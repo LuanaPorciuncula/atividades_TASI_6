@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+service ChatApp {
+    rpc joinChatApp(voidNoParam) returns (ServerRequest) {}
+    rpc provideUsername(Identification) returns (stream RcvdMsg) {}
+    rpc sendMsg (ChatMsg) returns (voidNoParam) {}    
+}
+
+message voidNoParam {}
+
+message ServerRequest {
+    string request = 1;
+    int32 userCount = 2;
+    int32 userId = 3;
+}
+
+message ChatMsg {
+    string username = 1;
+    string msg = 2;
+    string userId = 3;
+}
+
+message RcvdMsg {
+    string username = 1;
+    string msg = 2;
+}
+
+message Identification {
+    string username = 1;
+}
