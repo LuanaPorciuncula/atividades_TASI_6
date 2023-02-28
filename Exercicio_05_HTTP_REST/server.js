@@ -6,7 +6,6 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
 app.post('/createPeriod', function (req, res) {
   fs.readFile(__dirname + "/" + "periodos.json", 'utf8', function (err, data) {
     if (err) {
@@ -20,7 +19,7 @@ app.post('/createPeriod', function (req, res) {
         if (err) {
           res.json(err);
         } else {
-          res.json(periodos);
+          res.end("periodo: "+ req.body.periodo +" adicionado com sucesso");
         }
       });
     }
@@ -58,7 +57,7 @@ app.put('/updatePeriod', function (req, res) {
         if (err) {
           res.json(err);
         } else {
-          res.json(periodos);
+          res.end("periodo: "+ req.body.periodo +" editado com sucesso");
         }
       });
     }
@@ -71,6 +70,8 @@ app.delete('/deletePeriod', function (req, res) {
     if (err) {
       res.json(err);
     } else {
+      console.log(req.body.periodo)
+      console.log(req.body)
       var periodos = JSON.parse(data);
       var id = periodos.periodos.findIndex((periodo) => periodo.periodo == req.body.periodo)
       if (id != -1) {
@@ -81,7 +82,7 @@ app.delete('/deletePeriod', function (req, res) {
           if (err) {
             res.json(err);
           } else {
-            res.json(periodos);
+            res.end("periodo: "+ req.body.periodo +" deletado com sucesso");
           }
         });
       } else {

@@ -3,52 +3,25 @@
         {
             "periodo": "2021.1",
             "detalhes": [
-                {
-                    "disciplina": "IF866 - CRIATIVIDADE COMPUTACIONAL",
-                    "crédito": 3
-                },
-                {
-                    "disciplina": "IF702 - REDES NEURAIS",
-                    "crédito": 4
-                },
-                {
-                    "disciplina": "IF810 - TOP.AVANC.EM NEGÓCIOS ONLINE E EMPREENDIMENTOS",
-                    "crédito": 5
-                }
+                { "disciplina": "IF866 - CRIATIVIDADE COMPUTACIONAL", "crédito": 3 },
+                { "disciplina": "IF702 - REDES NEURAIS", "crédito": 4 },
+                { "disciplina": "IF810 - TOP.AVANC.EM NEGÓCIOS ONLINE E EMPREENDIMENTOS", "crédito": 5 }
             ]
         },
         {
             "periodo": "2021.2",
             "detalhes": [
-                {
-                    "disciplina": "IF783 - GESTAO DE NEGOCIOS",
-                    "crédito": 5
-                },
-                {
-                    "disciplina": "LE716 - INTRODUÇÃO A LIBRAS",
-                    "crédito": 4
-                },
-                {
-                    "disciplina": "IF707 - SEMIN. EM INTELIGENCIA ARTIFICIAL",
-                    "crédito": 3
-                }
+                { "disciplina": "IF783 - GESTAO DE NEGOCIOS", "crédito": 5 },
+                { "disciplina": "LE716 - INTRODUÇÃO A LIBRAS", "crédito": 4 },
+                { "disciplina": "IF707 - SEMIN. EM INTELIGENCIA ARTIFICIAL", "crédito": 3 }
             ]
         },
         {
             "periodo": "2022.1",
             "detalhes": [
-                {
-                    "disciplina": "IF754 - COMPUTACAO MUSICAL PROCESSAM.SOM",
-                    "crédito": 4
-                },
-                {
-                    "disciplina": "IF711 - PROGRAM. CONCORRENTE DISTRIBUIDA",
-                    "crédito": 4
-                },
-                {
-                    "disciplina": "IF706 - TOPICOS AVANC.INTELEG.ARTIFICIAL",
-                    "crédito": 5
-                }
+                { "disciplina": "IF754 - COMPUTACAO MUSICAL PROCESSAM.SOM", "crédito": 4 },
+                { "disciplina": "IF711 - PROGRAM. CONCORRENTE DISTRIBUIDA", "crédito": 4 },
+                { "disciplina": "IF706 - TOPICOS AVANC.INTELEG.ARTIFICIAL", "crédito": 5 }
             ]
         }
     ]
