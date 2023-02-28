@@ -70,8 +70,6 @@ app.delete('/deletePeriod', function (req, res) {
     if (err) {
       res.json(err);
     } else {
-      console.log(req.body.periodo)
-      console.log(req.body)
       var periodos = JSON.parse(data);
       var id = periodos.periodos.findIndex((periodo) => periodo.periodo == req.body.periodo)
       if (id != -1) {

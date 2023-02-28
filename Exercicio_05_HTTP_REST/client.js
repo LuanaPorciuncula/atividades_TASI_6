@@ -1,3 +1,6 @@
+// Os periodos criados, editados e deletados estão hard-coded só para simplificar para a atividade,
+// mas o código pode ser facilmente editado para o cliente prover mais informações do periodo a ser criado, editado e deletado para passar para o servidor
+
 const axios = require('axios').default;
 const readline = require('readline')
 
