@@ -2,22 +2,20 @@
 
 <body>
     <label id="usernameLabel" for="username">Username:</label><br>
-    <form id="usernameForm">
-        <div id="reqUsername">
+    <div id="reqUsername">
         <input type=" text" id="username" name="username"><br>
-            <button type="submit"> Enviar </button>
-        </div>
-        <br>
-    </form>
+        <button type="submit" id="usernameSubmitBtn"> Enviar </button>
+    </div>
+    <form></form>
+    <br>
     <form>
-        <div id="result">
-            </result>
+        <div id="result"></div>
     </form>
 
     <div id="chatInput" class="chatInput">
         <form id="msgForm">
             <textarea id="message" name="message" rows="4" cols="50" placeholder="Escreva sua mensagem..."> </textarea>
-                <button type="submit"> Enviar </button>
+            <button type="submit"> Enviar </button>
         </form>
     </div>
 </body>
@@ -41,7 +39,7 @@
 
     var sendUsername = function (event) {
         event.preventDefault();
-        const username = usernameForm.elements.username.value;
+        const username = document.getElementById("username").value;
 
         connection.send(username);
 
@@ -59,8 +57,8 @@
         connection.send(message);
     }
 
-    var usernameForm = document.getElementById("usernameForm");
-    usernameForm.addEventListener("submit", sendUsername);
+    var usernameSubmitBtn = document.getElementById("usernameSubmitBtn");
+    usernameSubmitBtn.addEventListener("click", sendUsername);
 
     var msgForm = document.getElementById("msgForm");
     msgForm.addEventListener("submit", sendMessage);
