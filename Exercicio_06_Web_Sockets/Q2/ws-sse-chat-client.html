@@ -1,0 +1,80 @@
+<html>
+
+<body>
+    <label id="usernameLabel" for="username">Username:</label><br>
+    <div id="reqUsername">
+        <input type=" text" id="username" name="username"><br>
+        <button type="submit" id="usernameSubmitBtn"> Enviar </button>
+    </div>
+    <form></form>
+    <br>
+    <form>
+        <div id="result"></div>
+    </form>
+
+    <div id="chatInput" class="chatInput">
+        <form id="msgForm">
+            <textarea id="message" name="message" rows="4" cols="50" placeholder="Escreva sua mensagem..."></textarea>
+            <button type="submit"> Enviar </button>
+        </form>
+    </div>
+</body>
+
+<script language="javascript">
+    var connection = new WebSocket('ws://localhost:8080/chatapp');
+
+    connection.onopen = function () {
+        console.log('Connection open!');
+    }
+
+    connection.onclose = function () {
+        console.log('Connection closed');
+    }
+
+    connection.onmessage = function (e) {
+        var server_message = e.data;
+        console.log(server_message);
+        document.getElementById("result").innerHTML += server_message + "<br>";
+    }
+
+    var sendUsername = function (event) {
+        event.preventDefault();
+        const username = document.getElementById("username").value;
+
+        connection.send(username);
+
+        document.getElementById("usernameLabel").textContent = "Username: " + username;
+        document.getElementById("reqUsername").style.display = "none";
+
+        document.getElementById("chatInput").style.visibility = "visible";
+    }
+
+    var sendMessage = function (event) {
+        event.preventDefault();
+
+        const message = msgForm.elements.message.value;
+
+        connection.send(message);
+    }
+
+    var usernameSubmitBtn = document.getElementById("usernameSubmitBtn");
+    usernameSubmitBtn.addEventListener("click", sendUsername);
+
+    var msgForm = document.getElementById("msgForm");
+    msgForm.addEventListener("submit", sendMessage);
+
+
+</script>
+
+</html>
+
+<style>
+    .chatInput {
+        position: fixed;
+        left: 20;
+        bottom: 20;
+        width: 100%;
+        text-align: left;
+        visibility: hidden;
+    }
+</style>

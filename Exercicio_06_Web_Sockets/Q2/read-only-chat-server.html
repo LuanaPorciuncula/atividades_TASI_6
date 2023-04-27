@@ -1,0 +1,17 @@
+<html>
+<body>
+    READ-ONLY CHAT
+    <br><br>
+    <form>
+        <div id="result"></div>
+    </form>
+</body>
+
+<script language="javascript">
+    var source = new EventSource("http://localhost:9090");
+    source.onmessage = function (event) {
+        var server_message = event.data;
+        document.getElementById("result").innerHTML += server_message + "<br>";
+    };
+</script>
+</html>
