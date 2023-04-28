@@ -16,7 +16,8 @@ function startPublisher(connection) {
         checkForError(error1);
 
         var queue = 'requests';
-        var msg = '{Request: ' + new Date() + "}";
+        var reqId = new Date();        
+        var msg = JSON.stringify({"RequestId":reqId});
 
         channel.assertQueue(queue, {
             durable: true
@@ -24,7 +25,7 @@ function startPublisher(connection) {
         channel.sendToQueue(queue, Buffer.from(msg), {
             persistent: true
         });
-        console.log(" [x] Sent %s", msg);
+        console.log(" Enviado pedido: %s", msg);
     });
 
     setTimeout(function () {

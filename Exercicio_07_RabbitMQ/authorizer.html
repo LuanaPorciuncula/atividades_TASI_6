@@ -2,7 +2,7 @@
 
 <body>
     <form>
-        <div id="result"></div>
+        <ul id="requestsList" style="list-style-type: none; padding: 0; margin: 0;"></ul>
     </form>
 </body>
 
@@ -16,12 +16,39 @@
     connection.onclose = function () {
         console.log('Connection closed');
     }
-    
+
     connection.onmessage = function (e) {
         var server_message = e.data;
-        console.log(server_message);
-        document.getElementById("result").innerHTML += server_message + "<br>";
+        switch (server_message.split("_")[0]) {
+            case 'add':
+                addRequest(server_message.split("_")[1]);
+                break;
+            case 'rm':
+                rmRequest(server_message.split("_")[1]);
+                break;
+            default:
+                console.log('operação não identificada');
+        }
     }
+
+    function addRequest(reqId) {
+        console.log("ID do pedido recebido:" + reqId);
+        document.getElementById("requestsList").innerHTML += '<li><button type="button" onclick="authorize(\'' + reqId + '\')">' + reqId + "</button></li>";
+    }
+
+    function authorize(requestId) {
+        console.log("Solicitada Autorização de " + requestId);
+        connection.send(requestId);
+    }
+
+    function rmRequest(reqId) {
+        console.log("Pedido de ID autorizado: " + reqId);
+        const li = [...document.querySelectorAll("li")];
+        li.forEach(elem => {
+            if (elem.innerText == reqId) elem.parentNode.removeChild(elem);
+        });
+    }
+    
 </script>
 
 </html>
